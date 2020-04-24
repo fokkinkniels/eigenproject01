@@ -1,0 +1,81 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+html{
+    overflow-X : hidden;
+}
+
+body{
+	font-family: "Segoe UI", Frutiger, "Frutiger Linotype";
+	background-color: #121212;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+.row{
+    flex-direction: row;
+	display: flex;
+}
+
+.center{
+	justify-content: space-between;
+	display: flex;
+}
+
+.container{
+	overflow: hidden;
+	margin:  auto;
+	width: 80%;
+}
+
+#showcase{
+	background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)),url('../img/pantheon.jpg');
+	background-position: center;
+  	background-repeat: no-repeat;
+  	background-size: cover;
+  	position: relative;
+	height: 50%;
+
+	text-align: center;
+	margin-bottom: 3vh;
+	min-height: 60vh;
+	}	
+
+#showcase h1{
+	text-align: center;
+	line-height: 1.6em;
+	font-size: 5vh;
+	color: #fff;
+	top: 100%;
+	left: 50%;
+
+	margin-bottom: 0px;
+	padding-top: 24vh;
+}
+
+
+#showcase p{
+	padding-bottom: 24vh;
+	line-height: 1.6em;
+	margin-top: 0px;
+	font-size: 2vh;
+	color: #fff;
+}
+
+
+
+@media(max-width: 1000px){
+
+	.highLight{
+		width: 90%;
+	}
+
+	.row{
+		flex-direction: column;
+		display: flex;
+	}
+}
+

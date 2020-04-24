@@ -1,0 +1,117 @@
+*{
+	margin: 0;
+	padding: 0;
+	outline-width: 0;
+}
+
+html{
+    overflow-X : hidden;
+}
+
+body{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	background-color: #121212;
+	font-family: "Segoe UI", Frutiger, "Frutiger Linotype"
+}
+
+.row{
+	display: flex;
+    flex-direction: row;
+}
+
+.center{
+	display: flex;
+	justify-content: space-between;
+}
+
+.loginForm{
+	width: 50%;
+	overflow: hidden;
+	color: #F6F6F6;
+}
+
+.loginForm h1{
+	text-align: center;
+	padding-top: 15%;
+	font-size: 6vh;
+	margin-bottom: 10%;
+}
+
+.loginForm input{
+	background: #121212;
+	border: none;
+	width: 100%;
+	margin: auto;
+
+	font-size: 4vh;
+	color: #fff;
+}
+
+.loginForm ::placeholder{
+	color: #fff;
+}
+
+
+.inputField{
+	display: block;
+	width: 80%;
+
+	margin: auto;
+	margin-top: 1ch;
+	padding: .5vh;
+
+	border-style: solid;
+	border-width: .3vh;
+	border-radius: .5vh;
+
+}
+
+input[type=submit] {
+	background-color: #F4FA37;
+	display: block;
+	width: 80%;
+	margin: auto;
+	margin-top: 20%;
+	padding: .5vh;
+
+	border-style: solid;
+	border-width: .3vh;
+	border-radius: .5vh;
+
+	color: #121212;
+	cursor: pointer;
+  }
+  
+  input[type=submit]:hover {
+	background-color: #121212;
+	color: #F4FA37;
+}
+
+.loginPhoto{
+	opacity: 0.6;
+	display:block;
+	width:200%;
+	margin: 0 -50%;
+	height: 100%;
+}
+
+.RegisterButton{
+	float: right;
+	padding-right: 10%;
+	font-size: 2vh;
+}
+
+.RegisterButton a{
+		color: #F4FA37;
+		font-size: 2.5 vh;
+
+		text-decoration: none;
+}
+
+.signuperror{
+	color: red;
+	font-size: 1.6vh;
+	text-align: center;
+}
