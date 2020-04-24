@@ -9,6 +9,9 @@ class Users extends Dbh {
         $stmt->execute([$username]);
 
         $results = $stmt->fetchAll();
+        if(empty($results)){
+            return false;
+        }
         return $results; 
     }
 
@@ -19,6 +22,9 @@ class Users extends Dbh {
         $stmt->execute([$email]);
 
         $results = $stmt->fetchAll();
+        if(empty($results)){
+            return false;
+        }
         return $results; 
     }
 

@@ -9,6 +9,8 @@
         if(empty($errors)){
             $userObj = new UsersContr;
             $userObj->createUser(trim($_POST['username']), trim($_POST['email']), trim($_POST['password']));
+            header("Location:  ./index.php");
+            exit();
         }
     }
 ?>
@@ -37,6 +39,7 @@
         <input type="password" name="password" placeholder="Password">
 
         <br>
+        <?php if(!empty($errors['password'])) echo $errors['password'].'<br>'?>
 
         <input type="password" name="repeatPassword" placeholder="Repeat Password">
 
