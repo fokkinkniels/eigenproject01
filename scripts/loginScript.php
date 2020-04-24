@@ -8,7 +8,7 @@
         $password = $_POST["password"];
 
         if(empty($email) || empty($password)){
-            header("Location:  http://i410222.hera.fhict.nl/login.php?error=emptyfields");
+            header("Location:  ../login.php?error=emptyfields");
             exit();
         }
         else{
@@ -17,7 +17,7 @@
             $stmt = mysqli_stmt_init($conn);
 
             if(!mysqli_stmt_prepare($stmt, $sql)){
-                header("Location:  http://i410222.hera.fhict.nl/login.html?error=sqlerror");
+                header("Location:  ../login.html?error=sqlerror");
                 exit();
             }
             else{
@@ -29,7 +29,7 @@
                     $pwdCheck = password_verify($password, $row['password']);
 
                     if($pwdCheck == false){
-                        header("Location:  http://i410222.hera.fhict.nl/login.php?error=wrongpwd");
+                        header("Location:  ../login.php?error=wrongpwd");
                         exit();  
                     }
                     else if($pwdCheck == true){
@@ -37,11 +37,11 @@
                         $_SESSION['userId'] = $row['ID'];
                         $_SESSION['userName'] = $row['name'];
 
-                        header("Location:  http://i410222.hera.fhict.nl/index.php?login=succes");
+                        header("Location:  ../index.php?login=succes");
                         exit();  
                     }
                     else{
-                        header("Location:  http://i410222.hera.fhict.nl/login.php?error=wrongpwd");
+                        header("Location:  ../login.php?error=wrongpwd");
                         exit();  
                     }
                 }
@@ -49,6 +49,6 @@
         }
     }
     else{
-        header("Location:  http://i410222.hera.fhict.nl/login.php?error=nicetryhacker");
+        header("Location:  ../login.php?error=nicetryhacker");
         exit();
     }
