@@ -1,64 +1,49 @@
+<?php
+    include '/includes/autoLoader.inc.php';
+    
+    if(isset($_POST['submit-register'])){
+
+        $validateObj = new userValidate($_POST);
+        $errors = $validateObj->validateForm();
+
+        if(empty($errors)){
+            $userObj = new UsersContr;
+            $userObj->createUser(trim($_POST['username']), trim($_POST['email']), trim($_POST['password']));
+        }
+    }
+?>
+
 <!DOCTYPE html>
-<html style="overflow-y: hidden; overflow-x: hidden;">
+<html lang="en">
 <head>
-    <title>Register</title>
-    <link rel="stylesheet" type="text/css" href="css/styleRegister.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 <body>
 
-    <?php
-        include './includes/header.php'
-    ?>
+    <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">	
 
-    <div class="row">
-        <div  class="photoWrapper">  
-            <img class="registerPhoto" src="img/Lol Register Screen.jpg" alt="RegisterPhoto">
-        </div>
+        <input type="text" name="username" placeholder="Username" value="<?php if(isset($_POST['username'])) echo htmlspecialchars($_POST['username'])?>">
+        
+        <br>
+        <?php if(!empty($errors['username'])) echo $errors['username'].'<br>'?>
+        
+        <input type="text" name="email" placeholder="Email" value="<?php if(isset($_POST['email'])) echo htmlspecialchars($_POST['email'])?>">
+        
+        <br>
+        <?php if(!empty($errors['email'])) echo $errors['email'].'<br>'?>
+      
+        <input type="password" name="password" placeholder="Password">
 
-        <div class="registerBox">
-            <section class="registerForm">
-            <h1 >Make Your ... Account</h1>
-            <hr>    
+        <br>
 
-            <?php 
-               include './includes/errormessages.inc.php'
-            ?>
+        <input type="password" name="repeatPassword" placeholder="Repeat Password">
 
-            <form action="./scripts/signup.inc.php" method="POST">	
-                <div class="inputField">
-                    <input type="text" name="username" placeholder="Username"
-                    <?php
-                        if(isset($_GET['username'])){
-                            echo 'value="'.$_GET['username'].'"';
-                        }
-                    ?>>
-                </div>
-                <div class="inputField">
-                    <input type="text" name="email" placeholder="Email"
-                    <?php
-                        if(isset($_GET['username'])){
-                            echo 'value="'.$_GET['email'].'"';
-                        }
-                    ?>>
-                </div>
-                
-                <br>
+        <br>
 
-                <div class="inputField">
-                    <input type="password" name="password" placeholder="Password">
-                </div>
-                <div class="inputField">
-                    <input type="password" name="password_repeat" placeholder="Repeat Password">
-                </div>
-
-                <br>
-                <input type="submit" name="submit" value="submit">
-    
-            </form>
-
-            </section>   
-        </div>
-    </div>
+        <input type="submit" name="submit-register" value="submit">
+    </form>
 
 </body>
 </html>
