@@ -9,5 +9,4 @@ class UsersView extends Users {
     public function showUserByEmail($email){
         return $results = $this->getUserByEmail($email);
     }
-
 }

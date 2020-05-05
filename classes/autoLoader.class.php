@@ -7,7 +7,7 @@
         $fullPath = $path . strtolower($className) . $ext;
 
         if(!file_exists($fullPath)){
-
+            
             echo $fullPath.' doest exists';
             return false;
         }
