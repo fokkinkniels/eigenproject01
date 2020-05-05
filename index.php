@@ -1,7 +1,7 @@
 <?php
-    include 'http://eigenproject.nl/includes/autoLoader.inc.php';
+	include __DIR__ .'/classes/autoLoader.class.php';
+	
     session_start();
-
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +14,7 @@
 <body>
 	
 	<!-- ads header to page -->
-	<?php 	require 'http://eigenproject.nl/includes/header.php';	?>
+	<?php 	require './includes/header.php';	?>
 
 
 	<section id="showcase">
@@ -37,7 +37,7 @@
 			echo '<div class="row">';
 
 				for ($y = 0; $y < 2; $y++) {
-					include 'http://eigenproject.nl/includes/highlight.php';
+					include './includes/highlight.php';
 				}
 
 			echo '</div>';
@@ -45,7 +45,7 @@
 	?>
 
 	<!-- ads footer to page -->
-	<?php require 'http://eigenproject.nl/includes/footer.php'; ?>
+	<?php require './includes/footer.php'; ?>
 
 </body>
 

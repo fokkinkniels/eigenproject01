@@ -1,5 +1,5 @@
 <?php
-    include '/includes/autoLoader.inc.php';
+	include __DIR__ .'/classes/autoLoader.class.php';
     
     if(isset($_POST['submit-register'])){
 
@@ -9,7 +9,7 @@
         if(empty($errors)){
             $userObj = new UsersContr;
             $userObj->createUser(trim($_POST['username']), trim($_POST['email']), trim($_POST['password']));
-            header("Location:  ./index.php");
+            header("Location:  http://eigenproject.nl/index.php");
             exit();
         }
     }
