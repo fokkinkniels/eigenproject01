@@ -1,5 +1,5 @@
 <?php
-    include '/includes/autoLoader.inc.php';
+    include 'http://eigenproject.nl/includes/autoLoader.inc.php';
     session_start();
 
 ?>
@@ -14,7 +14,7 @@
 <body>
 	
 	<!-- ads header to page -->
-	<?php 	require './includes/header.php';	?>
+	<?php 	require 'http://eigenproject.nl/includes/header.php';	?>
 
 
 	<section id="showcase">
@@ -37,7 +37,7 @@
 			echo '<div class="row">';
 
 				for ($y = 0; $y < 2; $y++) {
-					include './includes/highlight.php';
+					include 'http://eigenproject.nl/includes/highlight.php';
 				}
 
 			echo '</div>';
@@ -45,7 +45,7 @@
 	?>
 
 	<!-- ads footer to page -->
-	<?php require './includes/footer.php'; ?>
+	<?php require 'http://eigenproject.nl/includes/footer.php'; ?>
 
 </body>
 

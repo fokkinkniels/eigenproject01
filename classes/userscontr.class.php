@@ -32,7 +32,7 @@ class UsersContr extends Users {
             $_SESSION['userId'] = $this->getUserByEmail($email)[0]['ID'];
             $_SESSION['userName'] = $this->getUserByEmail($email)[0]['name'];
 
-            header("Location:  ./index.php");
+            header("Location:  http://eigenproject.nl/index.php");
             exit(); 
         }
 

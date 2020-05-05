@@ -1,5 +1,5 @@
 <?php
-include '/classes/secret.class.php';
+include 'http://eigenproject.nl/classes/secret.class.php';
 
 class Dbh {
 

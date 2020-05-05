@@ -1,5 +1,5 @@
 <?php
-    include '/includes/autoLoader.inc.php';
+    include 'http://eigenproject.nl/includes/autoLoader.inc.php';
     
     if(isset($_POST['submit-login'])){
 
