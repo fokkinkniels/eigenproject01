@@ -114,18 +114,16 @@
         </div>
     </div>
 
-    <p> <?php 
-
-        if(isset($_SESSION['userId'])) {
-            echo '"Welcome '.$_SESSION['userName'].'"';
-        }
-        else{
-            echo '"..."';
-        }
-
-        
-
-    ?>   </p>
+    <p> 
+        <?php 
+            if(isset($_SESSION['userId'])) {
+                echo '"Welcome '.$_SESSION['userName'].'"';
+            }
+            else{
+                echo '"..."';
+            }
+        ?>   
+    </p>
 
     <div class="RegisterButton">
         <?php

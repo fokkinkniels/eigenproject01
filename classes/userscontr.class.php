@@ -32,11 +32,20 @@ class UsersContr extends Users {
             $_SESSION['userId'] = $this->getUserByEmail($email)[0]['ID'];
             $_SESSION['userName'] = $this->getUserByEmail($email)[0]['name'];
 
-            header("Location:  http://eigenproject.nl/index.php");
+            header("Location:  ./index.php");
             exit(); 
         }
 
         return $this->errors;
+    }
+
+    public function uploadImg($fileTmpName){
+
+        $fileNameNew = 'profile'.$_SESSION['userId'].'.jpg';
+        $fileDest = './uploads/'.$fileNameNew;
+        move_uploaded_file($fileTmpName, $fileDest);  
+
+        $this->updateProfileImage($_SESSION['userId']);
     }
 
 
