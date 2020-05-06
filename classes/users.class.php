@@ -34,5 +34,12 @@ class Users extends Dbh {
         $stmt = $this->connect()->prepare($sql);
         $hasedpwd = password_hash($password, PASSWORD_DEFAULT);
         $stmt->execute([$name, $email, $hasedpwd]);
+
+        $userid = $this->getUserByEmail($email)[0]['ID'];
+
+        $sqlimg = 'INSERT INTO profileimg(userid, status) VALUES(?, ?)';
+        $stmtimg = $this->connect()->prepare($sqlimg);
+        $stmtimg->execute([$userid, 1]);
+
     }
 }

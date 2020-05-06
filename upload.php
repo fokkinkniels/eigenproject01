@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 
     if(isset($_POST['submitUpload'])){
 
@@ -28,7 +30,7 @@
             return false;
         }
 
-        $fileNameNew = uniqid('', true).".".$fileActualExt;
+        $fileNameNew = 'profile'.$_SESSION['userId'].'.jpg';
         $fileDest = './uploads/'.$fileNameNew;
         move_uploaded_file($fileTmpName, $fileDest);
         echo'succes!';

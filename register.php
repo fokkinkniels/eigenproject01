@@ -9,7 +9,7 @@
         if(empty($errors)){
             $userObj = new UsersContr;
             $userObj->createUser(trim($_POST['username']), trim($_POST['email']), trim($_POST['password']));
-            header("Location:  http://eigenproject.nl/index.php");
+            header("Location:  ./index.php");
             exit();
         }
     }
