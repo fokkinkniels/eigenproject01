@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>MyWebsite</title>
+	<title>Home</title>
 	<link rel="stylesheet" type="text/css" href="css/styleHomepage.css">
 </head>
 
