@@ -22,18 +22,48 @@ class UsersView extends Users {
             foreach($result as $row){
                 $id = $row['ID'];
 
-                echo'<div class="profile box">';    
+                echo'<div class="user-container">';    
                     if($this->getProfilePictureStatus($id)){
                         echo"<img src='./img/default.jpg' alt='profile picture'>";
                     }
                     else{
                         echo"<img src='./uploads/profile".$id.".jpg' alt='profile picture'>";
                     }
+
+                    echo "<p>".$row['name']."</p>";
+                    echo "<p>".$row['email']."</p>";
+                    echo "<p>".$row['ID']."</p>";
+
+                echo'</div>';  
+            }
+        }
+        else{
+            echo "there are no users yet!";
+        }
+        echo(' ');
+    }
+
+
+    public function loadProfile($username){
+
+        $result = $this->getUserByName($username);
+
+        if(!empty($result)){
+            foreach($result as $row){
+                $id = $row['ID'];
+
+                echo'<div class="user-container">';    
+                    if($this->getProfilePictureStatus($id)){
+                        echo"<img src='./img/default.jpg' alt='profile picture'>";
+                    }
+                    else{
+                        echo"<img src='./uploads/profile".$id.".jpg' alt='profile picture'>";
+                    }
+                echo "<p> Username: ".$row['name']."</p>";
+                echo "<p> Email: ".$row['email']."</p>";
+
                 echo'</div>';  
 
-                echo $row['name'];
-                echo $row['email'];
-                echo $row['ID'];
             }
         }
         else{
