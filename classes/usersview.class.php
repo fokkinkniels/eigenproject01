@@ -29,10 +29,10 @@ class UsersView extends Users {
                     else{
                         echo"<img src='./uploads/profile".$id.".jpg' alt='profile picture'>";
                     }
-
-                    echo "<p>".$row['name']."</p>";
-                    echo "<p>".$row['email']."</p>";
-                    echo "<p>".$row['ID']."</p>";
+                    
+                    echo "<p> ID: ".$row['ID']."</p>";
+                    echo "<p> Username: ".$row['name']."</p>";
+                    echo "<p> Email: " .$row['email']."</p>";
 
                 echo'</div>';  
             }
