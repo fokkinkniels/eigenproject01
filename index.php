@@ -1,7 +1,7 @@
 <?php
-    include '/includes/autoLoader.inc.php';
+	include __DIR__ .'/classes/autoLoader.class.php';
+	
     session_start();
-
 ?>
 
 <!DOCTYPE html>

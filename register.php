@@ -1,5 +1,5 @@
 <?php
-    include '/includes/autoLoader.inc.php';
+	include __DIR__ .'/classes/autoLoader.class.php';
     
     if(isset($_POST['submit-register'])){
 

@@ -39,6 +39,15 @@ class UsersContr extends Users {
         return $this->errors;
     }
 
+    public function uploadImg($fileTmpName){
+
+        $fileNameNew = 'profile'.$_SESSION['userId'].'.jpg';
+        $fileDest = './uploads/'.$fileNameNew;
+        move_uploaded_file($fileTmpName, $fileDest);  
+
+        $this->updateProfileImage($_SESSION['userId']);
+    }
+
 
     private function addError($key, $val){
         $this->errors[$key] = $val;

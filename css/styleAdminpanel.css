@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+	font-family: "Segoe UI", Frutiger, "Frutiger Linotype";
+}
+
+.errorMessage{
+    color: red;
+    font-size: 20px;
+    padding-left: 10px;
+}
+
+.user-container{
+    width: 35%;
+    padding: 10px;
+    margin: 10px;
+    overflow: hidden;
+    background: #292929;
+}
+
+.user-container img{
+    float: left;
+    height: 300px;
+    padding-right: 20px;
+}
+
+.user-container div{
+    float: left;
+}
+
+.user-container p{
+    font-size: 16px;
+    color: #F6F6F6;
+    padding: 10px;
+}

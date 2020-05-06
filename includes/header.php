@@ -92,7 +92,6 @@
 </style>
 
 
-
 <header id="MainHeader">
 
     <div class="MenuButton dropdown">
@@ -102,6 +101,13 @@
 
     <?php
         if (isset($_SESSION['userId'])) {
+            $userview = new UsersView();
+
+            if($userview->isadmin($_SESSION['userName'])){
+                echo '<a href="adminPanel.php">Admin Panel</a>';
+            }
+            
+
             echo '<a href="account.php">Account</a>
             <a href="./scripts/logout.php">Logout</a>';
         }
@@ -114,18 +120,16 @@
         </div>
     </div>
 
-    <p> <?php 
-
-        if(isset($_SESSION['userId'])) {
-            echo '"Welcome '.$_SESSION['userName'].'"';
-        }
-        else{
-            echo '"..."';
-        }
-
-        
-
-    ?>   </p>
+    <p> 
+        <?php 
+            if(isset($_SESSION['userId'])) {
+                echo '"Welcome '.$_SESSION['userName'].'"';
+            }
+            else{
+                echo '"..."';
+            }
+        ?>   
+    </p>
 
     <div class="RegisterButton">
         <?php

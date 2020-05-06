@@ -1,9 +1,12 @@
 <?php
-    include '/includes/autoLoader.inc.php';
+	include __DIR__ .'/classes/autoLoader.class.php';
     
     if(isset($_POST['submit-login'])){
 
         $userObj = new UsersContr();
+
+        echo"login processing";
+
         $errors = $userObj->logIn($_POST['email'], $_POST['password']);
     }
 ?>
