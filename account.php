@@ -10,10 +10,7 @@
         if(empty($errors)){
             $userObj = new UsersContr;
             $userObj->uploadImg($_FILES['file']['tmp_name']);
-            header("Cache-Control: no-cache, must-revalidate");
-            header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
-            header("Content-Type: application/xml; charset=utf-8");
-            header("Location:  ./account.php");
+            header("Refresh:0; url=account.php");
             exit();  
         }
     }
