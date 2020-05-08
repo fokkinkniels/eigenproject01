@@ -58,7 +58,7 @@
            
             if(empty($this->errors)){
                 $userObj = new gamecontr;
-                $userObj->uploadGame($fileTmpName, $fileName, $fileName);
+                $userObj->uploadGame($fileTmpName, $_POST['Title'], $_POST['Description']);
                 header("Refresh:0; url=index.php");
                 exit();  
             }

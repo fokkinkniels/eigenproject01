@@ -8,26 +8,24 @@
 
         public function uploadGame($fileTmpName, $title, $description){
 
-            $fileNameNew = $title;
-            $fileDest = 'games/zip/'.$title.uniqid();
+            $fileDest = 'games/zip/'.strstr($_FILES['file']['name'], '.zip', true);
             move_uploaded_file($fileTmpName, $fileDest);  
 
             $zip = new ZipArchive;
             $file = $zip->open($fileDest);
 
-            if($file === true){
-                
+            if($file === true){            
+
                 $zip->extractTo('games/');
                 $zip->close();
 
-                if(unlink($fileDest)) echo "File Deleted"; 
+                $oldname = strstr("games/".$_FILES['file']['name'], '.zip', true);
+                $newname = 'games/'.$title.uniqid();
+                rename($oldname, $newname);
+                unlink($fileDest); 
 
-                $filePath = 'games/'.explode('.', $_FILES['file']['name'])[0];
-                
-                $this->setGame($title, $description, $filePath);
-
+                $this->setGame($title, $description, $newname);
             }
         }
     }
-
 ?>

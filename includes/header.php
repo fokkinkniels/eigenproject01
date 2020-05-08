@@ -6,7 +6,7 @@
 
     html{
         font-family: "Segoe UI", Frutiger, "Frutiger Linotype";
-        background-color: #121212;
+        background-color: #121212 !important;
         overflow-X : hidden;
         color: #fff;
     }
@@ -71,7 +71,6 @@
         z-index: 1;
     }
 
-    /* Links inside the dropdown */
     .dropdown-content a {
         color: #F4FA37;
         padding: 12px 16px;
@@ -79,15 +78,10 @@
         display: block;
     }
 
-    /* Change color of dropdown links on hover */
     .dropdown-content a:hover {background-color: #F4FA37;
                                 color: #121212;
                             }
-
-    /* Show the dropdown menu on hover */
     .dropdown:hover .dropdown-content {display: block;}
-
-    /* Change the background color of the dropdown button when the dropdown content is shown */
 
 </style>
 
@@ -108,8 +102,8 @@
             }
             
 
-            echo '<a href="account.php">Account</a>
-            <a href="uploadGame.php">Upload game</a>
+            echo '<a href="uploadGame.php">Upload game</a>
+            <a href="account.php">Account</a>
             <a href="/scripts/logout.php">Logout</a>';
         }
         else{

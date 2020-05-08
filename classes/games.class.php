@@ -1,6 +1,19 @@
 <?php
 
     class games extends dbh{
+
+        protected function getAllGames(){
+
+            $sql = 'SELECT * FROM game';
+            $stmt = $this->connect()->prepare($sql);
+            $stmt->execute();
+    
+            $results = $stmt->fetchAll();
+            if(empty($results)){
+                return false;
+            }
+            return $results;
+        }
         
         protected function getGameByID($id){
 
