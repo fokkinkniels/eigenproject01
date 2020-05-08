@@ -31,6 +31,7 @@ class UsersContr extends Users {
             session_start();
             $_SESSION['userId'] = $this->getUserByEmail($email)[0]['ID'];
             $_SESSION['userName'] = $this->getUserByEmail($email)[0]['name'];
+            $_SESSION['userid'] = $this->getUserByEmail($email)[0]['id'];
 
             header("Location:  ./index.php");
             exit(); 
@@ -46,6 +47,59 @@ class UsersContr extends Users {
         move_uploaded_file($fileTmpName, $fileDest);  
 
         $this->updateProfileImage($_SESSION['userId']);
+    }
+
+    public function ProfileUpdate($data){
+
+        if($this->validateUsername($data['username']) && $this->validateEmail($data['email'])){
+            $this->updateProfile($_SESSION['userId'], $data['username'], $data['email']);
+            }
+        else{
+            return false;
+        }
+    }
+
+    private function validateUsername($username){
+        if(!empty($this->getUserByName($username))){
+            //username taken
+            echo "taken";
+            return false;
+        }
+        else if(empty(trim($username))){
+            //fields cannot be empty
+            echo "empty";
+            return false;
+        }
+        else if(!preg_match("/^[a-zA-Z0-9]{3,12}$/", $username)){
+            //username must be valid
+            echo "username valid";
+            return false;       
+        }
+        else{
+            return true;
+        }
+    }
+
+    private function validateEmail($email){
+
+        if(!empty($this->getUserByEmail($email))){
+            //email taken
+            echo "taken";
+            return false;
+        }
+        else if(empty(trim($email))){
+            //fields cannot be empty
+            echo "empty";
+            return false;
+        }
+        else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+            //email must be a valid email
+            echo "username valid";
+            return false;
+        }
+        else{
+            return true;
+        }
     }
 
 

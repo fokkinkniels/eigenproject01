@@ -32,6 +32,11 @@
 
         if(isset($_SESSION['userId'])){
 
+           
+
+            $userView = new UsersView();
+            $userView->loadProfile($_SESSION['userName']);
+
             echo '
             <form action="'.$_SERVER['PHP_SELF'].'" method="POST" enctype="multipart/form-data">
             <input type="file" name="file">
@@ -46,10 +51,12 @@
                 }
             }
 
-            $userView = new UsersView();
-            $userView->loadProfile($_SESSION['userName']);
+            echo '
+            <a href="updateProfile.php"><button class="updateProfile">Change Profile</button></a>
+            ';
         }
 
     ?>
+    
 </body>
 </html>

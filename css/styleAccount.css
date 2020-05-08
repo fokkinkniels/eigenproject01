@@ -37,6 +37,13 @@ body{
     padding: 10px;
 }
 
+.updateProfile{
+    color: #292929;
+    font-size: 16px;
+    padding: 5px;
+    margin: 10px;
+}
+
 form{
     padding: 0px;
     margin: 10px;
