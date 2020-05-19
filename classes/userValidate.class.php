@@ -1,5 +1,5 @@
 <?php
-    include 'http://eigenproject.nl/classes/usersview.class.php';
+    //include 'http://eigenproject.nl/classes/usersview.class.php';
     //include './classes/usersview.class.php';
 
     class userValidate{

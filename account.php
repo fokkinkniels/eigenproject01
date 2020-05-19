@@ -22,7 +22,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Account</title>
     <link rel="stylesheet" type="text/css" href="css/styleAccount.css">
 
 </head>
@@ -31,6 +31,11 @@
     include './includes/header.php';
 
         if(isset($_SESSION['userId'])){
+
+           
+
+            $userView = new UsersView();
+            $userView->loadProfile($_SESSION['userName']);
 
             echo '
             <form action="'.$_SERVER['PHP_SELF'].'" method="POST" enctype="multipart/form-data">
@@ -46,10 +51,12 @@
                 }
             }
 
-            $userView = new UsersView();
-            $userView->loadProfile($_SESSION['userName']);
+            echo '
+            <a href="updateProfile.php"><button class="updateProfile">Change Profile</button></a>
+            ';
         }
 
     ?>
+    
 </body>
 </html>

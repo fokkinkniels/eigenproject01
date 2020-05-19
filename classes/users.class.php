@@ -28,6 +28,19 @@ class Users extends Dbh {
         return $results; 
     }
 
+    protected function getUserByID($id){
+
+        $sql = 'SELECT * FROM user WHERE ID = ?';
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$id]);
+
+        $results = $stmt->fetchAll();
+        if(empty($results)){
+            return false;
+        }
+        return $results; 
+    }
+
     protected function getAllUsers(){
 
         $sql = 'SELECT * FROM user';
@@ -71,7 +84,15 @@ class Users extends Dbh {
 
     protected function updateProfileImage($id){
         $sql = 'UPDATE profileimg SET status=0 WHERE userid = ?';
+        
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$id]);
+    }
+
+    protected function updateProfile($id, $username, $email){
+
+        $sql = 'UPDATE user SET name=?, email=? WHERE ID='.$id;
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$username, $email]); 
     }
 }

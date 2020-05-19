@@ -6,7 +6,7 @@
 
     html{
         font-family: "Segoe UI", Frutiger, "Frutiger Linotype";
-        background-color: #121212;
+        background-color: #121212 !important;
         overflow-X : hidden;
         color: #fff;
     }
@@ -71,7 +71,6 @@
         z-index: 1;
     }
 
-    /* Links inside the dropdown */
     .dropdown-content a {
         color: #F4FA37;
         padding: 12px 16px;
@@ -79,15 +78,10 @@
         display: block;
     }
 
-    /* Change color of dropdown links on hover */
     .dropdown-content a:hover {background-color: #F4FA37;
                                 color: #121212;
                             }
-
-    /* Show the dropdown menu on hover */
     .dropdown:hover .dropdown-content {display: block;}
-
-    /* Change the background color of the dropdown button when the dropdown content is shown */
 
 </style>
 
@@ -97,23 +91,24 @@
     <div class="MenuButton dropdown">
         <button class="dropbtn">Menu</button>
         <div class="dropdown-content">
-            <a href="./index.php">Home</a>
+            <a href="/index.php">Home</a>
 
     <?php
         if (isset($_SESSION['userId'])) {
             $userview = new UsersView();
 
             if($userview->isadmin($_SESSION['userName'])){
-                echo '<a href="adminPanel.php">Admin Panel</a>';
+                echo '<a href="/adminPanel.php">Admin Panel</a>';
             }
             
 
-            echo '<a href="account.php">Account</a>
-            <a href="./scripts/logout.php">Logout</a>';
+            echo '<a href="uploadGame.php">Upload game</a>
+            <a href="account.php">Account</a>
+            <a href="/scripts/logout.php">Logout</a>';
         }
         else{
-            echo '<a href="./login.php">Login</a>
-                  <a href="./register.php">Register</a>';
+            echo '<a href="/login.php">Login</a>
+                  <a href="/register.php">Register</a>';
         }
         ?>
         
@@ -134,9 +129,9 @@
     <div class="RegisterButton">
         <?php
             if (isset($_SESSION['userId'])) {
-                echo '<a href="./account.php"><button>Account</button></a>';
+                echo '<a href="/account.php"><button>Account</button></a>';
             } else {
-                echo '<a href="login.php"><button>Register/Log In</button></a>';
+                echo '<a href="/login.php"><button>Register/Log In</button></a>';
             }
         ?>
         
