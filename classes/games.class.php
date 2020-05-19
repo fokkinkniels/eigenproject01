@@ -46,8 +46,6 @@
             $sql = 'INSERT INTO game(title, description, filepath) VALUES(?, ?, ?)';
             $stmt = $this->connect()->prepare($sql);
             $stmt->execute([$title, $description, $path]);
-
-            return $this->getGameByTitle($title)[0]["ID"];
         }
     }
 ?>

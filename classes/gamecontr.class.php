@@ -1,5 +1,4 @@
 <?php
-
     class gamecontr extends games{
 
         public function createGame($title, $description, $path){
@@ -23,6 +22,13 @@
                 $newname = 'games/'.$title.uniqid();
                 rename($oldname, $newname);
                 unlink($fileDest); 
+
+                if(!file_exists($newname.'index.html')){
+                    copy('games/Defaults/index.php', $newname.'/index.php');
+                }
+                else if(!file_exists($newname.'index.php')){
+                    copy('games/Defaults/index.php', $newname.'/index.php');
+                }
 
                 $this->setGame($title, $description, $newname);
             }

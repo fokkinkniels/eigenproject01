@@ -9,9 +9,6 @@
             echo 'succes';
         }
     }
-    else{
-        echo'lol';
-    }
 ?>
 
 <!DOCTYPE html>

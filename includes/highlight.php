@@ -45,22 +45,43 @@
 
 </style>
 
+<?php
+    $gameview = new gameview();
+    $games = $gameview->showAllGames();
 
-<section class="highLight col-md-4">
-
-    <div class="PhotoBorder">
-        <img class="peviewPhoto" src="img/GamePreview 2.jpg" alt="Preview Photo">
-        </div>
-            <h1>"New Game"</h1>
-                <div class="highLightText">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, similique illum impedit nam cupiditate vitae laborum, dolorem voluptatibus ratione odio aperiam tenetur amet consequuntur vero iste culpa saepe ipsum fugit?
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, similique illum impedit nam cupiditate vitae laborum, dolorem voluptatibus ratione odio aperiam tenetur amet consequuntur vero iste culpa saepe ipsum fugit?
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, similique illum impedit nam cupiditate vitae laborum, dolorem voluptatibus ratione odio aperiam tenetur amet consequuntur vero iste culpa saepe ipsum fugit?
+    if(!empty($games))
+        {
+        for ($i=0; $i < count($games) && $i < 2; $i++) { 
+            echo('
+            <section class="highLight col-md-4">
+            <div class="PhotoBorder">
+                <img class="peviewPhoto" src="img/GamePreview 2.jpg" alt="Preview Photo">
                 </div>
-                <div class="center">
-            <div ></div>
-            <a class="highLightButton" href="#"><p>PLAY</p></a>
-        <div></div>
-    </div>
+                    <h1>'.$games[$i]['title'].'</h1>
+                        <div class="highLightText">'.$games[$i]['description'].'</div>
+                        <div class="center">
+                    <div ></div>');
 
-</section>
+                    if(file_exists($games[$i]['filepath'].'/index.php')){
+                        echo('<a href="/'.$games[$i]['filepath'].'/index.php">Play</a> <br><br>');
+                    }
+
+
+                    if(file_exists($games[$i]['filepath'].'/index.php')){
+                        echo('<a href="/'.$games[$i]['filepath'].'/index.php">Play</a> <br><br>');
+                    }
+                    else if(file_exists($games[$i]['filepath'].'/index.html')){
+                        echo('<a href="/'.$games[$i]['filepath'].'/index.html">Play</a> <br><br>');
+                    }
+                    else{
+                        echo('This Game is not Playable <br><br><br>');
+                    }
+
+            echo('
+                        <div></div>
+                    </div>
+                </section>
+                    ');
+        }
+    }
+?>

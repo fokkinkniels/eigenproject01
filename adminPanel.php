@@ -24,6 +24,12 @@
             if($userView->isAdmin($_SESSION['userName'])){
                 $userView->loadProfiles();
             }
+            else{
+                echo'You are NOT an admin! if you should have acces to this page please contact us';
+            }
+        }
+        else{
+            echo'You are NOT Logged in! please login with an admin account to get acces to this page';
         }
 ?>
 

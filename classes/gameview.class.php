@@ -6,6 +6,8 @@
             return $results = $this->getGameByID($id);
         }
 
+        public function showAllGames(){
+            return $result = $this->getAllGames();
+        }
     }
-
 ?>
