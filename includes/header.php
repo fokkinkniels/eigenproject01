@@ -91,7 +91,7 @@
     <div class="MenuButton dropdown">
         <button class="dropbtn">Menu</button>
         <div class="dropdown-content">
-            <a href="/index.php">Home</a>
+        <a href="/index.php">Home</a>
 
     <?php
         if (isset($_SESSION['userId'])) {
@@ -101,17 +101,20 @@
                 echo '<a href="/adminPanel.php">Admin Panel</a>';
             }
             
-
-            echo '<a href="uploadGame.php">Upload game</a>
+            echo '
+            <a href="uploadGame.php">Upload game</a>
+            <a href="allgames.php">All Games</a>
             <a href="account.php">Account</a>
-            <a href="/scripts/logout.php">Logout</a>';
+            <a href="/scripts/logout.php">Logout</a>
+            ';
         }
         else{
-            echo '<a href="/login.php">Login</a>
-                  <a href="/register.php">Register</a>';
+            echo '
+            <a href="/login.php">Login</a>
+            <a href="/register.php">Register</a>
+            ';
         }
-        ?>
-        
+    ?> 
         </div>
     </div>
 

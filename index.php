@@ -33,21 +33,15 @@
 
 	<!-- ads certain amount of shocases to page -->
 	<?php
-		for ($x = 0; $x < 1; $x++) {
-			echo '<div class="row">';
-
-				for ($y = 0; $y < 2; $y++) {
-					include './includes/highlight.php';
-				}
-
-			echo '</div>';
-		}
+		echo '<div class="row">';
+			include './includes/highlight.php';
+		echo '</div>';
+		
 	?>
 
 	<!-- ads footer to page -->
 	<?php require './includes/footer.php'; ?>
 
 </body>
-
 
 </html>

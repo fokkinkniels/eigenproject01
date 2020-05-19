@@ -46,6 +46,7 @@
         }
 
         public function validateFolder(){
+            
            //TODO: validate if files are legid.
 
             $file = $_FILES['file'];
