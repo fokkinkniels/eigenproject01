@@ -104,10 +104,10 @@ input[type=submit] {
 }
 
 .RegisterButton a{
-		color: #F4FA37;
-		font-size: 2.5 vh;
+	color: #F4FA37;
+	font-size: 2.5 vh;
 
-		text-decoration: none;
+	text-decoration: none;
 }
 
 .signuperror{

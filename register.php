@@ -20,33 +20,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/styleRegister.css">
     <title>Register</title>
 </head>
 <body>
 
-    <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">	
 
-        <input type="text" name="username" placeholder="Username" value="<?php if(isset($_POST['username'])) echo htmlspecialchars($_POST['username'])?>">
-        
-        <br>
-        <?php if(!empty($errors['username'])) echo $errors['username'].'<br>'?>
-        
-        <input type="text" name="email" placeholder="Email" value="<?php if(isset($_POST['email'])) echo htmlspecialchars($_POST['email'])?>">
-        
-        <br>
-        <?php if(!empty($errors['email'])) echo $errors['email'].'<br>'?>
-      
-        <input type="password" name="password" placeholder="Password">
 
-        <br>
-        <?php if(!empty($errors['password'])) echo $errors['password'].'<br>'?>
+    <div class="row">
+        <div  class="photoWrapper">  
+            <img class="registerPhoto" src="img/Lol Register Screen.jpg" alt="RegisterPhoto">
+        </div>
 
-        <input type="password" name="repeatPassword" placeholder="Repeat Password">
+        <div class="registerBox">
+            <section class="registerForm">
+            <h1 >Make Your ... Account</h1>
+            <hr>    
 
-        <br>
+            <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">	
+                <div class="inputField">
+                    <input type="text" name="username" placeholder="Username" value="<?php if(isset($_POST['username'])) echo htmlspecialchars($_POST['username'])?>">
+                </div>
+                <div class="signuperror">
+                    <?php if(!empty($errors['username'])) echo $errors['username'].'<br>'?>
+                </div>
 
-        <input type="submit" name="submit-register" value="submit">
-    </form>
+                <div class="inputField">
+                    <input type="text" name="email" placeholder="Email" value="<?php if(isset($_POST['email'])) echo htmlspecialchars($_POST['email'])?>">
+                </div>
+                <div class="signuperror">
+                    <?php if(!empty($errors['email'])) echo $errors['email'].'<br>'?>
+                </div>
+                
+                <br>
+
+                <div class="inputField">
+                <input type="password" name="password" placeholder="Password">
+                </div>
+                <div class="signuperror">
+                    <?php if(!empty($errors['password'])) echo $errors['password'].'<br>'?>
+                </div>
+                <div class="inputField">
+                <input type="password" name="repeatPassword" placeholder="Repeat Password">
+                </div>
+
+                <br>
+                <input type="submit" name="submit-register" value="submit">
+    
+            </form>
+
+            </section>   
+        </div>
+    </div>
 
 </body>
 </html>
