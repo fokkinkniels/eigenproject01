@@ -1,7 +1,4 @@
-*{
-    margin: 0;
-    padding: 0;
-}
+
 
 body{
 	font-family: "Segoe UI", Frutiger, "Frutiger Linotype";
@@ -10,20 +7,14 @@ body{
 .errorMessage{
     color: red;
     font-size: 20px;
-    padding-left: 10px;
 }
 
 .user-container{
-    width: 35%;
-    padding: 10px;
-    margin: 10px;
     overflow: hidden;
     background: #292929;
 }
 
 .user-container img{
-    float: left;
-    width: 60%;
     padding-right: 20px;
 }
 
@@ -34,15 +25,20 @@ body{
 .user-container p{
     font-size: 16px;
     color: #F6F6F6;
-    padding: 10px;
 }
 
 .updateProfile{
     color: #292929;
     font-size: 16px;
-    padding: 5px;
-    margin: 10px;
 }
+
+.file{
+    border: #F6F6F6 dashed 2px;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
 
 form{
     padding: 0px;

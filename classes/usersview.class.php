@@ -24,16 +24,20 @@ class UsersView extends Users {
 
                 echo'<div class="user-container">';    
                     if($this->getProfilePictureStatus($id)){
-                        echo"<img src='./img/default.jpg' alt='profile picture'>";
+                        echo"<img src='/img/default.jpg' alt='profile picture'>";
                     }
                     else{
-                        echo"<img src='./uploads/profile".$id.".jpg' alt='profile picture'>";
+                        echo"<img src='/uploads/profile".$id.".jpg' alt='profile picture'>";
                     }
                     
-                    echo "<p> ID: ".$row['ID']."</p>";
+                    echo "<p> ID: ".$id."</p>";
                     echo "<p> Username: ".$row['name']."</p>";
                     echo "<p> Email: " .$row['email']."</p>";
 
+                    echo '  <form action="/adminPanel.php" method="POST">
+                            <input type="text" name="userId" value="'.$id.'">
+                            <button type="submit" name="removeButton">Remove User</button>
+                            </form>';
                 echo'</div>';  
             }
         }
@@ -52,17 +56,22 @@ class UsersView extends Users {
             foreach($result as $row){
                 $id = $row['ID'];
 
-                echo'<div class="user-container">';    
+                echo'<div class="user-container col-md-12 row no-gutters">';    
                     if($this->getProfilePictureStatus($id)){
-                        echo"<img src='./img/default.jpg' alt='profile picture'>";
+                        echo"
+                        <div class'row no-gutters'>
+                        <img class='col-md-5' src='./img/default.jpg' alt='profile picture'>";
                     }
                     else{
-                        echo"<img src='./uploads/profile".$id.".jpg' alt='profile picture'>";
+                        echo"
+                        <div class'row no-gutters'>
+                        <img class='col-md-5 'src='./uploads/profile".$id.".jpg' alt='profile picture'>";
                     }
-                echo "<p> Username: ".$row['name']."</p>";
-                echo "<p> Email: ".$row['email']."</p>";
+                echo "  <div class'col-md-2'>
+                        <p> Username: ".$row['name']."</p>";
+                echo "  <p> Email: ".$row['email']."</p>";
 
-                echo'</div>';  
+                echo'</div></div></div>';  
 
             }
         }

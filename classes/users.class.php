@@ -95,4 +95,11 @@ class Users extends Dbh {
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$username, $email]); 
     }
+
+    protected function removeUserDb($id){
+        $sql = 'DELETE FROM user WHERE ID=?';
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$id]); 
+        echo 'succes';
+    }
 }

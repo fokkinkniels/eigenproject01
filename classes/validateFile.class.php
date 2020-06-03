@@ -40,7 +40,7 @@
             else if($fileError !== 0){
                 $this->addError('file', 'error while uploading!');
             }
-            else if($fileSize > 1000000){
+            else if($fileSize > 5000000){
                 $this->addError('file', 'file is to big!');
             }
         }

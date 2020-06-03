@@ -1,6 +1,12 @@
 <?php
     session_start();
-	include __DIR__ .'/classes/autoLoader.class.php';
+    include __DIR__ .'/classes/autoLoader.class.php';
+    
+    if(isset($_POST['removeButton']) && isset($_POST['userId'])){
+        $controller = new UsersContr();
+        $controller->removeUser($_POST['userId']);
+        echo"succes!";
+    }
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +38,6 @@
             echo'You are NOT Logged in! please login with an admin account to get acces to this page';
         }
 ?>
-
         
 </body>
 </html>
