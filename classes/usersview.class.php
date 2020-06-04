@@ -18,6 +18,16 @@ class UsersView extends Users {
         return $results = $this->getUserByName($username)[0]['admin'];
     }
 
+    public function showProfilePicture($id){
+
+        if($this->getProfilePictureStatus($id)){
+            echo"./img/default.jpg'";
+        }
+        else{
+            echo"./uploads/profile".$id.".jpg";
+        }
+    }
+
     public function loadProfiles(){
 
         $result = $this->getAllUsers();
@@ -50,7 +60,6 @@ class UsersView extends Users {
         }
         echo(' ');
     }
-
 
     public function loadProfile($username){
 

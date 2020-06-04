@@ -36,6 +36,7 @@ class UsersContr extends Users {
             $_SESSION['userId'] = $this->getUserByEmail($email)[0]['ID'];
             $_SESSION['userName'] = $this->getUserByEmail($email)[0]['name'];
             $_SESSION['userid'] = $this->getUserByEmail($email)[0]['id'];
+            $_SESSION['userEmail'] = $email;
 
             header("Location:  ./index.php");
             exit(); 

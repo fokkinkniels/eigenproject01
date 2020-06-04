@@ -1,53 +1,12 @@
-<?php 	
+<?php
+    include './includes/header.php';
+    $userView = new UsersView();
 
+    if(!isset($_SESSION['userId'])){
+        header("Location: ./login.php");
+        exit;
+    }
 ?>
-    
-    <div class="row justify-content-around py-5">
 
-        <div class="col-md-3">
-            <div class='highlightContainer'>
-                <img  src="/img/pantheon.jpg" alt="preview image">
-                <div class='col-md-12 pt-3'>
-                    <h2>
-                    <?php 
-                        $randIndex = array_rand($games);
-                        echo $games[$randIndex]['title']
-                    ?>
-                    </h2>
-                </div>
-                <div class='col-md-12'>
-                    <p>
-                    <?php 
-                        $randIndex = array_rand($games);
-                        echo $games[$randIndex]['description']  
-                    ?>
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3">
-            <div class='highlightContainer'>
-                <img  src="/img/pantheon.jpg" alt="preview image">
-                <div class='col-md-12 pt-3'>
-                    <h2>
-                    <?php 
-                        $randIndex = array_rand($games);
-                        echo $games[$randIndex]['title']
-                    ?>
-                    </h2>
-                </div>
-                <div class='col-md-12'>
-                    <p>
-                    <?php 
-                        $randIndex = array_rand($games);
-                        echo $games[$randIndex]['description']  
-                    ?>
-                    </p>
-                </div>
-            </div>
-        </div>
-        
-    </div>
-
-</body>
+<h1 class="text-danger text-center pt-5">Watch out!!</h1>
+<p class="text-danger text-center">This page may be nuclear 0_0</p>

@@ -1,43 +1,24 @@
 <?php
-    session_start();
-    include __DIR__ .'/classes/autoLoader.class.php';
-    
+    include './includes/header.php';
+    $userView = new UsersView();
+
+    if(!isset($_SESSION['userId'])){
+        header("Location: ./login.php");
+        exit;
+    }
+
+    if(!$userView->isAdmin($_SESSION['userName'])){
+        header("Location: ./index.php");
+        exit;
+    }
+
     if(isset($_POST['removeButton']) && isset($_POST['userId'])){
         $controller = new UsersContr();
         $controller->removeUser($_POST['userId']);
         echo"succes!";
     }
+
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel</title>
-    <link rel="stylesheet" type="text/css" href="css/styleAdminpanel.css">
-
-</head>
-<body>
-
-<?php
-        include './includes/header.php';
-
-        if(isset($_SESSION['userId'])){
-            
-            $userView = new UsersView();
-
-            if($userView->isAdmin($_SESSION['userName'])){
-                $userView->loadProfiles();
-            }
-            else{
-                echo'You are NOT an admin! if you should have acces to this page please contact us';
-            }
-        }
-        else{
-            echo'You are NOT Logged in! please login with an admin account to get acces to this page';
-        }
-?>
-        
+        You Are an Admin! This page is under construstion
 </body>
 </html>

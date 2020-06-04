@@ -3,48 +3,52 @@
 
     if(!isset($_SESSION['userId'])){
         header("Location: ./login.php");
+        exit;
     }
 
-    if(isset($_POST["submit-upload"])){
-
-        $validateFile = new validateFile($_POST);
-        $errors = $validateFile->validatePhoto();
-
-        if(empty($errors)){
-            $userObj = new UsersContr;
-            $userObj->uploadImg($_FILES['file']['tmp_name']);
-            header("Refresh:0; url=account.php");
-            exit();  
-        }
+    if(isset($_POST['ChangeProfileBtn'])){
+        header("Location: ./updateProfile.php");
+        exit;
     }
 
     $userView = new UsersView();
-
 ?>
 
-    <!-- form to upload new profile image -->
-    <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST" enctype="multipart/form-data">                   
-        <div class="row no-gutters p-1">
-            <div class="file inputbox col-md-10 p-5" id="yourBtn" for="file" onclick="getFile()">click to select a new profile image</div>
-            <div style="height: 0px; width: 0px; overflow: hidden;">
-                <input id="file" name="file" type="file" onchange="sub(this)">
-            </div> 
-        </div> 
-        <?php
-            if(!empty($errors)){
-                foreach($errors as $error){
-                    echo'<div class="text-danger col-md-12 text-center p-1">';
-                    echo $error;
-                    echo '</div>';
-                }
-            }
-        ?>
-        <button class="DefaultBtnYel col-md-8 p-1 offset-2" type="submit" name="submit-upload">Upload New Image</button>
+<div class='pt-5'></div>
+    <div class='col-md-10 offset-1 userInfoContainer no-gutters'>
+        <div class='row no-gutters'>
+            <div class='col-md-4'>
+                <div class='row p-3 no-gutters'>
+                    <div class='col-md-4'>
+                        UserName:
+                    </div>
+                    <div class='col-md-8'>
+                        <?php echo $_SESSION['userName'] ?>
+                    </div>
+                </div>
+                <div class='row p-3 no-gutters'>
+                    <div class='col-md-4'>
+                        Email:
+                    </div>
+                    <div class='col-md-8'>
+                    <?php echo $_SESSION['userEmail'] ?>
+                    </div>
+                </div>
+            </div>
+            <div class='col-md-8'>
+                <div class='row no-gutters'>
+                    <div class="col-md-2 p-3">
+                        ProfilePicture:
+                    </div>
+                    <img class='col-md-10' src="<?php $userView->showProfilePicture($_SESSION['userId']) ?>" alt="ProfilePicture">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
+        <button class='col-md-10 offset-1 DefaultBtnYel font-weight-bold' name="ChangeProfileBtn">Change Profile</button>
     </form>
 
-
-
-<script type="text/javascript" src="/scripts/files.js"></script>
-   
 </body>
 </html>
