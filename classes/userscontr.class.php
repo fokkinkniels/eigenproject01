@@ -10,6 +10,10 @@ class UsersContr extends Users {
         $this->setUser($name, $email, $password);
     }
 
+    public function removeUser($id){
+        $this->removeUserDb($id);
+    }
+
 
     public function logIn($email, $password){
 
