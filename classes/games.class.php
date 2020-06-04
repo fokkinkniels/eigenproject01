@@ -43,9 +43,9 @@
 
         protected function setGame($title, $description, $path){
 
-            $sql = 'INSERT INTO game(title, description, filepath) VALUES(?, ?, ?)';
+            $sql = 'INSERT INTO game(user_id, title, description, filepath) VALUES(?, ?, ?, ?)';
             $stmt = $this->connect()->prepare($sql);
-            $stmt->execute([$title, $description, $path]);
+            $stmt->execute([$_SESSION['userId'] ,$title, $description, $path]);
         }
     }
 ?>

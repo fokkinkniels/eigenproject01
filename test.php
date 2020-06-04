@@ -1,8 +1,12 @@
-<div class="row justify-content-around py-5">
+<?php 	
+
+?>
+    
+    <div class="row justify-content-around py-5">
 
         <div class="col-md-3">
             <div class='highlightContainer'>
-                <img  src="/img/GamePreview 2.jpg" alt="preview image">
+                <img  src="/img/pantheon.jpg" alt="preview image">
                 <div class='col-md-12 pt-3'>
                     <h2>
                     <?php 
@@ -24,7 +28,7 @@
 
         <div class="col-md-3">
             <div class='highlightContainer'>
-                <img  src="/img/Game Preview.jpg" alt="preview image">
+                <img  src="/img/pantheon.jpg" alt="preview image">
                 <div class='col-md-12 pt-3'>
                     <h2>
                     <?php 
@@ -45,3 +49,5 @@
         </div>
         
     </div>
+
+</body>

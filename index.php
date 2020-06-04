@@ -1,46 +1,38 @@
-<?php
-	include __DIR__ .'/classes/autoLoader.class.php';
-	
-    session_start();
+<?php 	
+    require 'includes/header.php';	
+    $gameview = new gameview();
+	$games = $gameview->showAllGames();
+	$userview = new usersview();
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Home</title>
-	<link rel="stylesheet" type="text/css" href="css/styleHomepage.css">
-</head>
+	<!-- showcase -->
+	<div class='ShowCasePhoto'>
+		<img src="/img/pantheon.jpg" alt="ha it doesnt wurk">
+		<div class='centered col-md-3'>
 
-<body>
-	
-	<!-- ads header to page -->
-	<?php 	require './includes/header.php';	?>
+			<h1>                    
+				<?php 
+				$randIndex = array_rand($games);
+				echo $games[$randIndex]['title']
+				?>
+			</h1>
 
-
-	<section id="showcase">
-		<div class="container">
-			<div class="showcase_text">
-				<h1 style="font-size: 8vh ">"ShowCase" </h1>
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua.
-				</p>
-			</div>
+			<p>
+			<?php 
+				$randIndex = array_rand($games);
+				echo "Game by: ".$userview->showUserById($games[$randIndex]['user_id'])[0]['name'];  
+			?>
+			</p>
 		</div>
-		<div style="padding-bottom: 70px"></div>
-	</section>
 
+	</div>
 
 	<!-- ads certain amount of shocases to page -->
 	<?php
-		echo '<div class="row">';
-			include './includes/highlight.php';
-		echo '</div>';
-		
+			include 'includes/highlight.php';
 	?>
 
 	<!-- ads footer to page -->
-	<?php require './includes/footer.php'; ?>
 
 </body>
 
