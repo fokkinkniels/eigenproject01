@@ -24,10 +24,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
     <link rel="stylesheet" type="text/css" href="css/styleAccount.css">
 
 </head>
@@ -56,7 +52,7 @@
                             <input id="file" name="file" type="file" onchange="sub(this)">
                         </div> 
                     </div> 
-                        <button class="col-md-6" type="submit" name="submit-upload">Upload New Image</button>
+                        <button class="col-md-6 DefaultBtn" type="submit" name="submit-upload">Upload New Image</button>
                     </form>';
 
                     if(!empty($errors)){
@@ -67,7 +63,7 @@
                         }
                     }
                     echo '
-                        <a href="updateProfile.php"><button class="col-md-6 updateProfile">Change Profile</button></a>
+                        <a href="updateProfile.php"><button class="col-md-6 updateProfile DefaultBtn">Change Profile</button></a>
                     ';
                 }
 

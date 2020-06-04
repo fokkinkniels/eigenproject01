@@ -10,6 +10,10 @@ class UsersView extends Users {
         return $results = $this->getUserByEmail($email);
     }
 
+    public function showUserById($id){
+        return $results = $this->getUserByID($id);
+    }
+
     public function isAdmin($username){
         return $results = $this->getUserByName($username)[0]['admin'];
     }
@@ -36,7 +40,7 @@ class UsersView extends Users {
 
                     echo '  <form action="/adminPanel.php" method="POST">
                             <input type="text" name="userId" value="'.$id.'">
-                            <button type="submit" name="removeButton">Remove User</button>
+                            <button  class="DefaultBtn" type="submit" name="removeButton">Remove User</button>
                             </form>';
                 echo'</div>';  
             }
