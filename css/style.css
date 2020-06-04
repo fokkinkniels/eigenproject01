@@ -139,10 +139,23 @@
         border: dashed 3px white;
         margin: auto;
         text-align: center;
+        cursor: pointer;
     }
 
     .centeredItem{
         margin: auto;
+    }
+
+    .userInfoContainer{
+        background: #292929;
+    }
+
+    .userInfoContainer img{
+        width: 100%;
+        max-height: 400px;
+        overflow: hidden;
+        object-fit: cover;
+        object-position: 50% 50%;
     }
 
     #MainHeader p,a,button{

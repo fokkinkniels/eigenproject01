@@ -1,16 +1,12 @@
-<?php 
-    session_start();
+<?php
+    include './includes/header.php';
 
-	include __DIR__ .'/classes/autoLoader.class.php';
-    require './includes/header.php';
+    if(!isset($_SESSION['userId'])){
+        header("Location: ./login.php");
+        exit;
+    }
 
-if(isset($_POST['submit-upload'])){
-    $validateFiles = new validateFile($_POST);
-    $errors = $validateFiles->validateFolder();
-}
-
-if(isset($_SESSION['userId'])){
-    echo '
+    ?>
         <form action="'.$_SERVER["PHP_SELF"].'" method="POST" enctype="multipart/form-data">
             <br>
             <label>Title:</label>
@@ -26,6 +22,4 @@ if(isset($_SESSION['userId'])){
             <input type="file" name="file">
             <br><br>
             <button type="submit" name="submit-upload">Upload</button>
-        </form>'
-        ;
-}
+        </form>
