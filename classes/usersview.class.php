@@ -21,11 +21,16 @@ class UsersView extends Users {
     public function showProfilePicture($id){
 
         if($this->getProfilePictureStatus($id)){
-            echo"./img/default.jpg'";
+            return"./img/default.jpg'";
         }
         else{
-            echo"./uploads/profile".$id.".jpg";
+            return"./uploads/profile".$id.".jpg";
         }
+    }
+
+    public function getAllusersAdmin(){
+
+        return $this->getAllUsers();
     }
 
     public function loadProfiles(){

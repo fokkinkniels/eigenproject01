@@ -2,7 +2,6 @@
 include  './classes/secret.class.php';
 
 class Dbh {
-
     private $host = "studmysql01.fhict.local";
     private $user = "dbi410222";
     private $dbName = "dbi410222";

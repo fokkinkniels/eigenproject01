@@ -12,6 +12,7 @@
     }
 
     $userView = new UsersView();
+    $filePath = $userView->showProfilePicture($_SESSION['userId']);
 ?>
 
 <div class='pt-5'></div>
@@ -40,7 +41,7 @@
                     <div class="col-md-2 p-3">
                         ProfilePicture:
                     </div>
-                    <img class='col-md-10' src="<?php $userView->showProfilePicture($_SESSION['userId']) ?>" alt="ProfilePicture">
+                    <img class='col-md-10' src="<?php echo($filePath); ?>" alt="ProfilePicture">
                 </div>
             </div>
         </div>
