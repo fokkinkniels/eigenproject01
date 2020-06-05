@@ -21,10 +21,10 @@ class UsersView extends Users {
     public function showProfilePicture($id){
 
         if($this->getProfilePictureStatus($id)){
-            return"./img/default.jpg'";
+            return './img/default.jpg';
         }
         else{
-            return"./uploads/profile".$id.".jpg";
+            return "./uploads/profile".$id.".jpg";
         }
     }
 

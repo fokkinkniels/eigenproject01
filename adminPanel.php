@@ -17,6 +17,10 @@
         $controller->removeUser($_POST['userId']);
     }
 
+    if(isset($_POST['changeButton']) && isset($_POST['userId'])){
+        header("Location: ./changeAccAdmin.php?code=".$_POST['userId']);
+        exit;
+    }
 ?>
 
 <div class="col-md-10 offset-1 pt-5">
@@ -57,9 +61,21 @@
                         
                     </td>
                     <td>
-                        <form action="'.$_SERVER['PHP_SELF'].'">
+                    <div class="row">
+                        <form action="'.$_SERVER['PHP_SELF'].'" method="POST" class="p-2">
                             <button name="removeButton" type="submit" class="DefaultBtnYel p-2">Remove</button>
+                            <div style="height: 0px; width: 0px; overflow: hidden;">
+                                <input type="text" name="userId" value="'.$user['ID'].'">
+                            </div>
                         </form>
+
+                        <form action="'.$_SERVER['PHP_SELF'].'" method="POST" class="p-2">
+                            <button name="changeButton" type="submit" class="DefaultBtnYel p-2">Change Profile</button>
+                            <div style="height: 0px; width: 0px; overflow: hidden;">
+                                <input type="text" name="userId" value="'.$user['ID'].'">
+                            </div>
+                        </form>
+                    </div>
                     </td>
                 </tr>
                 ';

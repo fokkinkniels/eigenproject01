@@ -54,20 +54,31 @@ class UsersContr extends Users {
         $this->updateProfileImage($_SESSION['userId']);
     }
 
-    public function ProfileUpdate($data){
+    public function ProfileUpdate($id){
 
-        if($this->validateUsername($data['username']) && $this->validateEmail($data['email'])){
-            $this->updateProfile($_SESSION['userId'], $data['username'], $data['email']);
-            }
-        else{
+        if($this->validateUsername($_POST['username']) && $this->validateEmail($_POST['email']))
+        {
+            $this->updateProfile($id, $_POST['username'], $_POST['email']);
+            $this->resetSessionVar($_SESSION['userId']);
+        }
+        else
+        {
             return false;
         }
     }
 
+    public function resetSessionVar($id){
+        $result = $this->getUserByID($id)[0];
+
+        $_SESSION['userId'] = $result['ID'];
+        $_SESSION['userName'] = $result['name'];
+        $_SESSION['userEmail'] = $result['email'];
+    }
+
     private function validateUsername($username){
-        if(!empty($this->getUserByName($username))){
+        if(!empty($this->getUserByName($username)) && $username == $_SESSION[['userName']]){
             //username taken
-            echo "taken";
+            echo $username."taken";
             return false;
         }
         else if(empty(trim($username))){
@@ -87,9 +98,9 @@ class UsersContr extends Users {
 
     private function validateEmail($email){
 
-        if(!empty($this->getUserByEmail($email))){
+        if(!empty($this->getUserByEmail($email)) && $email == $_SESSION[['userEmail']]){
             //email taken
-            echo "taken";
+            echo $email."taken";
             return false;
         }
         else if(empty(trim($email))){

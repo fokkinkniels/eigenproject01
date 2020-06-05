@@ -1,5 +1,10 @@
 <?php
-	include __DIR__ .'/classes/autoLoader.class.php';
+    include __DIR__ .'/classes/autoLoader.class.php';
+    
+    if(isset($_SESSION['userId'])){
+        header("Location: ./index.php");
+        exit;
+    }
     
     if(isset($_POST['submit-login'])){
 

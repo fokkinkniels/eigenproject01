@@ -1,6 +1,6 @@
 <div class="row justify-content-around py-5">
 
-        <div class="col-md-3">
+        <div class="col-md-4">
             <div class='highlightContainer'>
                 <img  src="/img/GamePreview 2.jpg" alt="preview image">
                 <div class='col-md-12 pt-3'>
@@ -22,7 +22,7 @@
             </div>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-4">
             <div class='highlightContainer'>
                 <img  src="/img/Game Preview.jpg" alt="preview image">
                 <div class='col-md-12 pt-3'>

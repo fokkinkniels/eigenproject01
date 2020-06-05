@@ -47,7 +47,9 @@
                         <td>
                             <form action="'.$_SERVER['PHP_SELF'].'" method="POST">
                                 <button name="PlayButton" type="submit" class="DefaultBtnYel p-2">Play</button>
-                                <input type="text" value="'.$game['id'].'" style="visibility:hidden">
+                                <div style="height: 0px; width: 0px; overflow: hidden;">
+                                    <input type="text" value="'.$game['id'].'">
+                                </div>
                             </form>
                         </td>
                     </tr>
@@ -57,6 +59,5 @@
                 </tbody>
             </table>
         </div>
-
     
     
