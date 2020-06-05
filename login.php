@@ -4,7 +4,6 @@
     if(isset($_POST['submit-login'])){
 
         $userObj = new UsersContr();
-
         $errors = $userObj->logIn($_POST['email'], $_POST['password']);
     }
 ?>
@@ -20,7 +19,6 @@
 <body>
     <div class="row">
         <section class="loginForm">
-
 
             <h1>"Log In"</h1>
             
