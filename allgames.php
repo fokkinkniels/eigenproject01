@@ -51,13 +51,12 @@
                             </form>
                         </td>
                     </tr>
-                </tbody>
-            </table>
-        </div>
         ';
     } 
 ?>
-
+                </tbody>
+            </table>
+        </div>
 
     
     
