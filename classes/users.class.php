@@ -96,10 +96,16 @@ class Users extends Dbh {
         $stmt->execute([$username, $email]); 
     }
 
+    protected function updateRights($id, $admin){
+
+        $sql = 'UPDATE user SET admin=? WHERE ID='.$id;
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$admin]); 
+    }
+
     protected function removeUserDb($id){
         $sql = 'DELETE FROM user WHERE ID=?';
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$id]); 
-        echo 'succes';
     }
 }
