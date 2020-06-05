@@ -43,9 +43,12 @@
             else if($fileSize > 5000000){
                 $this->addError('file', 'file is to big!');
             }
+            else if(!preg_match("/^[a-zA-Z0-9]{3,12}$/", $fileName)){
+                $this->addError('file', 'filename must be 3-12 chars & alphanumeric');
+            }
         }
 
-        public function validateFolder(){
+        public function validateGame(){
             
            //TODO: validate if files are legid.
 
@@ -56,13 +59,40 @@
             $fileSize = $_FILES['file']['size'];
             $fileError = $_FILES['file']['error'];
             $fileType = $_FILES['file']['type'];
+
+            $fileExt = explode('.', $fileName);
+            $fileActualExt = strtolower(end($fileExt));
            
-            if(empty($this->errors)){
-                $userObj = new gamecontr;
-                $userObj->uploadGame($fileTmpName, $_POST['Title'], $_POST['Description']);
-                header("Refresh:0; url=index.php");
-                exit();  
+            $allowed = array('zip');
+
+            //check for error in uploaded file
+            if(!in_array($fileActualExt, $allowed)){
+                $this->addError('file', 'wrong type!');
             }
+            else if($fileError !== 0){
+                $this->addError('file', 'error while uploading!');
+            }
+
+            //check for errors in game Title
+            $title = trim($this->data['Title']);
+            $description = ($this->data['Description']);
+
+            if(empty($title)){
+                $this->addError('Title', 'Title cannot be empty');
+            }
+            else if(!preg_match("/^[a-zA-Z0-9]{3,12}$/", $title)){
+                $this->addError('Title', 'Title must be 3-12 chars & alphanumeric');
+            }
+
+            //check for errors in game description
+            if(empty($description)){
+                $this->addError('Description', 'description cannot be empty');
+            }
+            else if(!preg_match("/^[a-zA-Z0-9]{3,999}$/", $description)){
+                $this->addError('Description', 'description must be 3-999 chars & alphanumeric');
+            }
+
+            return $this->errors;
         }
 
         private function addError($key, $val){
