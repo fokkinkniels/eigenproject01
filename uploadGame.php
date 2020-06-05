@@ -21,7 +21,9 @@
     }
 
     ?>
-        <div class="col-md-12 yellowText text-center pt-5">
+
+<div class=' pt-5'></div>
+        <div class="col-md-12 yellowText text-center">
             <h1>Upload your game here!</h1>
         </div>
 

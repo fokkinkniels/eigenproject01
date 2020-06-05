@@ -43,9 +43,6 @@
             else if($fileSize > 5000000){
                 $this->addError('file', 'file is to big!');
             }
-            else if(!preg_match("/^[a-zA-Z0-9]{3,12}$/", $fileName)){
-                $this->addError('file', 'filename must be 3-12 chars & alphanumeric');
-            }
         }
 
         public function validateGame(){
@@ -80,16 +77,16 @@
             if(empty($title)){
                 $this->addError('Title', 'Title cannot be empty');
             }
-            else if(!preg_match("/^[a-zA-Z0-9]{3,12}$/", $title)){
-                $this->addError('Title', 'Title must be 3-12 chars & alphanumeric');
+            else if(!preg_match("/^[a-zA-Z0-9]{3,120}$/", $title)){
+                $this->addError('Title', 'Title must be 3-120 chars & alphanumeric');
             }
 
             //check for errors in game description
             if(empty($description)){
                 $this->addError('Description', 'description cannot be empty');
             }
-            else if(!preg_match("/^[a-zA-Z0-9]{3,999}$/", $description)){
-                $this->addError('Description', 'description must be 3-999 chars & alphanumeric');
+            else if(!preg_match("/^[a-zA-Z0-9]{3,9999}$/", $description)){
+                $this->addError('Description', 'description must be 3-9999 chars & alphanumeric');
             }
 
             return $this->errors;
