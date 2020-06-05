@@ -44,6 +44,8 @@
             <br>
             <input class="form-control col-md-10 offset-1" type="text" name="email" value="<?php echo $userView->showUserById($id)[0]['email'] ?>">
             <br>
+            <input class="form-control col-md-10 offset-1" type="bool" name="admin" value="<?php echo $userView->showUserById($id)[0]['admin'] ?>">
+            <br>
             <button class='DefaultBtnYel col-md-8 p-1 offset-2' type="submit" name="profile-update">Save changes</button>    
         </div>
     </form>
