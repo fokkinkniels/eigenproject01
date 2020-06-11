@@ -2,22 +2,24 @@
 include  './classes/secret.class.php';
 
 class Dbh {
-    private $host = "studmysql01.fhict.local";
-    private $user = "dbi410222";
-    private $dbName = "dbi410222";
-    private $pwd = "";
-
-    protected function getPwd(){
+    private static function getPwd(){
         $secret = new Secret();
-        $this->pwd = $secret->get_password();
+        return $secret->get_password();
     }
 
-    protected function connect(){
+    private static function con() {
 
-        $this->getPwd();
-        $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbName;
-        $pdo = new PDO($dsn, $this->user, $this->pwd);
-        $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+        $pdo = new PDO('mysql:host=studmysql01.fhict.local;dbname=dbi410222;charset=utf8', "dbi410222", self::getPwd());
+        $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $pdo;
-    }
+      }
+    
+      public static function query($query, $params = array()) {
+        $stmt = self::con()->prepare($query);
+        $stmt->execute($params);
+        $data = $stmt->fetchAll();
+        //print_r($data);
+        return $data;
+      }
 }

@@ -2,17 +2,13 @@
     spl_autoload_register('myAutoLoader');
 
     function myAutoLoader($className){
-        $path = __DIR__."/";
-        //$path = "./classes/";
-        $ext = ".class.php";
-        $fullPath = $path . strtolower($className) . $ext;
 
-        if(!file_exists($fullPath)){
-            
-            echo $fullPath.' doest exists';
-            return false;
+        if(file_exists('./Classes/'.$className.'.class.php')){
+            require_once('./Classes/'.$className.'.class.php');
+        }
+        else if(file_exists('./Controllers/'.$className.'.php')){
+            require_once('./Controllers/'.$className.'.php');
         }
 
-        include_once $fullPath;
     }
 ?>
