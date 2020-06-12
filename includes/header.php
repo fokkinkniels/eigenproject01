@@ -1,6 +1,5 @@
 <?php
     session_start();
-	include '././classes/autoLoader.class.php';
 ?>
 
 <!DOCTYPE html>
@@ -22,25 +21,26 @@
         <div class="MenuButton dropdown">
             <button class="dropbtn">Menu</button>
             <div class="dropdown-content">
-            <a href="/index.php">Home</a>
+            <a href="./index.php">Home</a>
 
                 <?php
                     if (isset($_SESSION['userId'])) {
-                        $userview = new UsersView();
-                        if($userview->isadmin($_SESSION['userName'])){
-                            echo '<a href="/adminPanel.php">Admin Panel</a>';
+                        if(isset($_SESSION['isAdmin'])){
+                            if($_SESSION['isAdmin']){
+                                echo '<a href="./admin-panel">Admin Panel</a>';
+                            }
                         }                        
                         echo '
-                        <a href="/uploadGame.php">Upload game</a>
-                        <a href="/allgames.php">All Games</a>
-                        <a href="/account.php">Account</a>
-                        <a href="/scripts/logout.php">Logout</a>
+                        <a href="./uploadGame">Upload game</a>
+                        <a href="./allgames">All Games</a>
+                        <a href="./account">Account</a>
+                        <a href="./logout">Logout</a>
                         ';
                     }
                     else{
                         echo '
-                        <a href="/login.php">Login</a>
-                        <a href="/register.php">Register</a>
+                        <a href="./login">Login</a>
+                        <a href="./register">Register</a>
                         ';
                     }
                 ?> 
@@ -59,9 +59,9 @@
         <div class="RegisterButton">
             <?php
                 if (isset($_SESSION['userId'])) {
-                    echo '<a href="/account.php"><button>Account</button></a>';
+                    echo '<a href="./account"><button>Account</button></a>';
                 } else {
-                    echo '<a href="/login.php"><button>Register/Log In</button></a>';
+                    echo '<a href="./login"><button>Register/Log In</button></a>';
                 }
             ?>    
         </div>	
