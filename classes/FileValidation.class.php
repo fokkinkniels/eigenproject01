@@ -80,9 +80,6 @@ class FileValidation{
         if(empty($description)){
             $this->addError('description', 'description cannot be empty');
         }
-        else if(!preg_match("/^[a-zA-Z0-9]{3,9999}$/", $description)){
-            $this->addError('description', 'description must be 3-9999 chars & alphanumeric');
-        }
 
         return $this->errors;
     }

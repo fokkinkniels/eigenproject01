@@ -10,8 +10,6 @@ public function UploadGameFunction($post_data){
     $errors = $validation->ValidateGame();
     $errors += $validation2->Validation();
 
-    print_r($post_data);
-
     if(!empty($errors)){
         return $errors;
     }

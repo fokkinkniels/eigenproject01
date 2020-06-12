@@ -19,6 +19,15 @@
                     ?>
                     </p>
                 </div>
+                <form action="./allgames" method="POST">
+                    <button name="PlayButton" type="submit" class="DefaultBtnYel p-2 col-md-12">Play</button>
+                    <div style="height: 0px; width: 0px; overflow: hidden;">
+                        <input type="text" name="id" value="                    
+                        <?php 
+                        echo $game->getGameDetails($randint)[0]['ID']  
+                        ?>">
+                    </div>
+                </form>
             </div>
         </div>
 
@@ -43,6 +52,15 @@
                     ?>
                     </p>
                 </div>
+                <form action="./allgames" method="POST">
+                    <button name="PlayButton" type="submit" class="DefaultBtnYel p-2 col-md-12">Play</button>
+                    <div style="height: 0px; width: 0px; overflow: hidden;">
+                        <input type="text" name="id" value="                    
+                        <?php 
+                        echo ($game->getGameDetails($randint2)[0]['ID']);  
+                        ?>">
+                    </div>
+                </form>
             </div>
         </div>
         

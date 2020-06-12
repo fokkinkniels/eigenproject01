@@ -1,6 +1,6 @@
 <?php
 
-class Game extends controller{
+class Game extends Controller{
 
     public function getGameDetails($id){
             $sql = 'SELECT * FROM game WHERE ID = ?';
