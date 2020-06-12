@@ -1,46 +1,46 @@
 <?php
 
 Route::set('index.php', function(){
-    Index::CreateView('Index');
+    index::CreateView('index');
 });
 
 Route::set('login', function(){
-    Login::CreateView('Login');
+    Login::CreateView('login');
 });
 
 Route::set('register', function(){
-    Register::CreateView('Register');
+    Register::CreateView('register');
 });
 
 Route::set('user-profile', function(){
-    UserProfile::CreateView('UserProfile');
+    UserProfile::CreateView('userProfile');
 });
 
 Route::set('account', function(){
-    Account::CreateView('Account');
+    Account::CreateView('account');
 });
 
 Route::set('update-profile', function(){
-    UpdateProfile::CreateView('UpdateProfile');
+    UpdateProfile::CreateView('updateProfile');
 });
 
 Route::set('allgames', function(){
-    AllGames::CreateView('AllGames');
+    AllGames::CreateView('allGames');
 });
 
 Route::set('uploadGame', function(){
-    UploadGame::CreateView('UploadGame');
+    UploadGame::CreateView('uploadGame');
 });
 
 Route::set('logout', function(){
-    LogOut::CreateView('LogOut');
+    LogOut::CreateView('logOut');
 });
 
 Route::set('admin-panel', function(){
-    AdminPanel::CreateView('AdminPanel');
+    AdminPanel::CreateView('adminPanel');
 });
 
 Route::set('changeAccAdmin', function(){
-    ChangeAccAdmin::CreateView('ChangeAccAdmin');
+    ChangeAccAdmin::CreateView('changeAccAdmin');
 });
 ?>

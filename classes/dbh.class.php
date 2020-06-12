@@ -1,5 +1,5 @@
 <?php
-include  './classes/secret.class.php';
+include  './Classes/secret.class.php';
 
 class Dbh {
     private static function getPwd(){

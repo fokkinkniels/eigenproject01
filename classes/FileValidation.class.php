@@ -86,4 +86,8 @@ class FileValidation{
 
         return $this->errors;
     }
+
+    private function addError($key, $val){
+        $this->errors[$key] = $val;
+    }
 }

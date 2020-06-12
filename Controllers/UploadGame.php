@@ -5,7 +5,12 @@ class UploadGame extends Controller{
 public function UploadGameFunction($post_data){
 
     $validation = new FileValidation($post_data);
+    $validation2 = new UserValidation($post_data);
+
     $errors = $validation->ValidateGame();
+    $errors += $validation2->Validation();
+
+    print_r($post_data);
 
     if(!empty($errors)){
         return $errors;
@@ -18,19 +23,24 @@ public function UploadGameFunction($post_data){
 
         $zip = new ZipArchive;
         $file = $zip->open($fileDest);
-        $oldname = strstr("./etc/games/zip/".$_FILES['file']['name'], '.zip', true);
-        $newname = './etc/games/'.$post_data['title'].uniqid();
 
-        $zip->close();
+            if($file === true){            
 
-        unlink($fileDest); 
-        rename($oldname, $newname);
+                $zip->extractTo('./etc/games/');
+                $zip->close();
 
-        //push to database
-        $sql = 'INSERT INTO game(user_id, title, description, filepath) VALUES(?, ?, ?, ?)';
-        dbh::query($sql, array($_SESSION['userId'] ,$post_data['title'], $post_data['description'], $newname));        
+                $oldname = strstr("./etc/games/".$_FILES['file']['name'], '.zip', true);
+                $newname = './etc/games/'.$post_data['title'].uniqid();
+                rename($oldname, $newname);
+                unlink($fileDest); 
 
-        header("Location: ./allGames");
+                //push to database
+                $sql = 'INSERT INTO game(user_id, title, description, filepath) VALUES(?, ?, ?, ?)';
+                dbh::query($sql, array($_SESSION['userId'] ,$post_data['title'], $post_data['description'], $newname));  
+            }
+      
+
+        header("Location: ./allgames");
         exit;
     }
 }

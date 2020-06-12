@@ -1,5 +1,4 @@
 <?php
-    require_once('./classes/AutoLoader.class.php');
     require_once( 'includes/header.php');	
     $controller = new Account();
 

@@ -1,4 +1,4 @@
 <?php
-require_once('./classes/AutoLoader.class.php');
-require_once('Routes.php');
+require_once('./Classes/AutoLoader.class.php');
+require_once('./Routes.php');
 ?>

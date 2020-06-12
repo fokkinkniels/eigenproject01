@@ -15,6 +15,8 @@ class UserValidation{
             $this->ValidateUsername();
             $this->ValidateEmail();
             $this->ValidatePwd();
+            $this->ValidateTitle();
+            $this->ValidateDescription();
 
             return $this->errors;
         }
@@ -70,7 +72,36 @@ class UserValidation{
             else if($val != $val_repeat){
                 $this->addError('password', 'passwords must be the same');
             }
+        }
 
+
+        private function ValidateTitle(){
+
+            if(!isset($this->data['title'])){
+                return;
+            }
+
+            $val = trim($this->data['title']);
+
+            if(empty($val)){
+                $this->addError('title', 'title cannot be empty');
+            }
+            $val = preg_replace('#<script(.*?)>(.*?)</script>#is', '', $val);         
+        }
+
+
+        private function ValidateDescription(){
+
+            if(!isset($this->data['description'])){
+                return;
+            }
+
+            $val = trim($this->data['description']);
+
+            if(empty($val)){
+                $this->addError('description', 'description cannot be empty');
+            }
+            $val = preg_replace('#<script(.*?)>(.*?)</script>#is', '', $val);         
         }
 
         private function addError($key, $val){

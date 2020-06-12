@@ -1,6 +1,5 @@
 <?php
     session_start();
-    //require_once('./classes/AutoLoader.class.php');
 
     $_SESSION['username'] = 'niels';
 ?>
