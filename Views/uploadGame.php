@@ -10,7 +10,6 @@
     if(isset($_POST['submit-upload'])){
 
         $errors = $controller->UploadGameFunction($_POST);
-  
     }
     ?>
 

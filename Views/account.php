@@ -39,7 +39,7 @@
                     <div class="col-md-2 p-3">
                         ProfilePicture:
                     </div>
-                    <img class='col-md-10' src="<?php echo($controller->GetProfilePicture()) ?>" alt="<?php echo($controller->GetProfilePicture()) ?>">
+                    <img class='col-md-10' src="<?php echo($controller->GetProfilePicture()) ?>" alt="Cant Load Img">
                 </div>
             </div>
         </div>

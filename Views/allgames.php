@@ -2,11 +2,23 @@
     include './includes/header.php';
 
     if(!isset($_SESSION['userId'])){
-        header("Location: ./login.php");
+        header("Location: ./login");
         exit;
     }
 
     $controller = new Game();
+
+    if(isset($_POST['PlayButton']) && isset($_POST['id'])){
+
+        $id = trim($_POST['id']);
+        $game = $controller->getGameDetails($id);
+        $fileExt = $game[0]['filepath'];
+
+        header("Location: ./game?dest=".$fileExt);
+        exit;
+
+    }
+
     $games = $controller->GetAllGames();
 
     if(empty($games)){
@@ -47,7 +59,7 @@
                             <form action="./allgames" method="POST">
                                 <button name="PlayButton" type="submit" class="DefaultBtnYel p-2">Play</button>
                                 <div style="height: 0px; width: 0px; overflow: hidden;">
-                                    <input type="text" value="'.$game['ID'].'">
+                                    <input type="text" name="id" value="'.$game['ID'].'">
                                 </div>
                             </form>
                         </td>

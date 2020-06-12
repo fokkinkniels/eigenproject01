@@ -43,4 +43,9 @@ Route::set('admin-panel', function(){
 Route::set('changeAccAdmin', function(){
     ChangeAccAdmin::CreateView('changeAccAdmin');
 });
+
+Route::set('game', function(){
+    Game::CreateView('game');
+});
+
 ?>
