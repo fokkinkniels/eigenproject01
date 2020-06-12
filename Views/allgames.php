@@ -13,6 +13,7 @@
         $id = trim($_POST['id']);
         $game = $controller->getGameDetails($id);
         $fileExt = $game[0]['filepath'];
+        $fileExt = base64_encode($fileExt);
 
         header("Location: ./game?dest=".$fileExt);
         exit;

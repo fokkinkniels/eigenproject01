@@ -11,7 +11,8 @@
             exit;
         }
 
-        $fileDest = $_GET['dest'].'/index.html';
+        $fileDest = $_GET['dest'];
+        $fileDest = base64_decode ($fileDest).'/index.html';
 
         if(file_exists($fileDest)){
             echo '<iframe src="'.$fileDest.'" title="Game" width="100%" height="600" style="border:none;"></iframe>';
