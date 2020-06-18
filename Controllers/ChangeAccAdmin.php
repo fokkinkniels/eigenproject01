@@ -4,7 +4,7 @@ class ChangeAccAdmin extends Controller{
 
     public function GetUSer($id){
         $sql = 'SELECT * FROM user WHERE id=?';
-        return dbh::query($sql , array($id));
+        return Database::query($sql , array($id));
     }
 
     public function UpdateProfile($id, $post_data){
@@ -17,7 +17,7 @@ class ChangeAccAdmin extends Controller{
         }
         else{
             $sql = 'UPDATE user SET name=?, email=? WHERE ID=? ';
-            dbh::query($sql, array($post_data['username'], $post_data['email'], $id));
+            Database::query($sql, array($post_data['username'], $post_data['email'], $id));
             header('Location: ./changeAccAdmin?code='.$id);
 
         }

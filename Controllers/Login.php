@@ -16,13 +16,13 @@ class Login extends Controller{
         else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
             $this->addError('email', 'email must be a valid email');
         }
-        else if(!password_verify($password, dbh::query("SELECT * FROM user WHERE email=:email", array(":email"=>$email))[0]['password'])){
+        else if(!password_verify($password, Database::query("SELECT * FROM user WHERE email=:email", array(":email"=>$email))[0]['password'])){
             $this->addError('password', 'email, password combination is incorrect');
         }
         else if(empty($this->errors)){
 
             session_start();
-            $user = dbh::query("SELECT * FROM user WHERE email=:email", array(":email"=>$email))[0];
+            $user = Database::query("SELECT * FROM user WHERE email=:email", array(":email"=>$email))[0];
             $_SESSION['userId'] = $user['ID'];
             $_SESSION['userName'] = $user['name'];
             $_SESSION['isAdmin'] = $user['admin'];

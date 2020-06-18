@@ -24,7 +24,7 @@
 <div class="p-5 userInfoContainer col-md-10 offset-1">
     <div class='col-md-12 text-center pb-5 yellowText'>
         <h1>
-            Upadate your profile here:
+            Update your profile here:
         </h1>
     </div>
 

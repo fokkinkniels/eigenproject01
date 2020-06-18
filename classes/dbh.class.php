@@ -1,7 +1,7 @@
 <?php
 include  './Classes/secret.class.php';
 
-class Dbh {
+class Database {
     private static function getPwd(){
         $secret = new Secret();
         return $secret->get_password();

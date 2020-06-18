@@ -13,9 +13,9 @@ class UpdateProfile extends Controller{
         else{
 
             $sql = 'UPDATE user SET name=?, email=? WHERE ID='.$_SESSION['userId'];
-            dbh::query($sql, array($post_data['username'], $post_data['email']));
+            Database::query($sql, array($post_data['username'], $post_data['email']));
 
-            $user = dbh::query("SELECT * FROM user WHERE email=:email", array(":email"=>$post_data['email']))[0];
+            $user = Database::query("SELECT * FROM user WHERE email=:email", array(":email"=>$post_data['email']))[0];
             $_SESSION['userId'] = $user['ID'];
             $_SESSION['userName'] = $user['name'];
             $_SESSION['userEmail'] = $user['email'];
@@ -43,7 +43,7 @@ class UpdateProfile extends Controller{
             move_uploaded_file($fileTmpName, $fileDest);  
 
             $sql = 'UPDATE profileimg SET status=0 WHERE userid = ?';         
-            dbh::query($sql, array($_SESSION['userId']));
+            Database::query($sql, array($_SESSION['userId']));
 
             header("Location: ./account");
             exit;
