@@ -34,7 +34,7 @@ public function UploadGameFunction($post_data){
 
                 //push to database
                 $sql = 'INSERT INTO game(user_id, title, description, filepath) VALUES(?, ?, ?, ?)';
-                dbh::query($sql, array($_SESSION['userId'] ,$post_data['title'], $post_data['description'], $newname));  
+                Database::query($sql, array($_SESSION['userId'] ,$post_data['title'], $post_data['description'], $newname));  
             }
       
 

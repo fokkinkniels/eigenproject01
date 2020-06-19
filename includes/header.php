@@ -33,6 +33,7 @@
                         echo '
                         <a href="./uploadGame">Upload game</a>
                         <a href="./allgames">All Games</a>
+                        <a href="./mygames">My Games</a>
                         <a href="./account">Account</a>
                         <a href="./logout">Logout</a>
                         ';

@@ -6,7 +6,7 @@ class Account extends Controller{
 
         $sql = 'SELECT * FROM profileimg WHERE userid = ?';
 
-        if(dbh::query($sql, array($_SESSION['userId']))['status']){
+        if(Database::query($sql, array($_SESSION['userId']))['status']){
             return './etc/img/default.jpg';
         }
         else{

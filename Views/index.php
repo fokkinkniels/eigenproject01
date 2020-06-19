@@ -10,13 +10,13 @@
 			<h1>                    
 				<?php 
 				$randint = rand(1, count($game->getAllGames())-1);
-				echo $game->getAllGames()[$randint]['title']  
+				echo $game->getAllGames()[$randint]['title']  ;
 				?>
 			</h1>
 
 			<p>
 				<?php 
-				echo $game->getAllGames()[$randint]['description']
+				echo $game->getAllGames()[$randint]['description'];
 				?>
 			</p>
 		</div>

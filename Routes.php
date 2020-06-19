@@ -48,4 +48,8 @@ Route::set('game', function(){
     Game::CreateView('game');
 });
 
+Route::set('mygames', function(){
+    MyGames::CreateView('mygames');
+});
+
 ?>
