@@ -1,140 +1,69 @@
-<style>
-    *{
-        margin: 0;
-        padding: 0;
-    }
+<?php
+    session_start();
+?>
 
-    html{
-        font-family: "Segoe UI", Frutiger, "Frutiger Linotype";
-        background-color: #121212;
-        overflow-X : hidden;
-        color: #fff;
-    }
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-    header{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        box-shadow:0 0 0 .2vh #F4FA37;
-        margin-bottom: .2vh;
-    }
+    <link rel="stylesheet" href="./css/style.css">
+</head>
 
-    .MenuButton button{
-        padding: 1.2vh 2.9vh;
-        background-color: #121212;
-        color: #F4FA37;
-        border: none;
-        box-shadow:.2vh 0 0 0 #F4FA37;
-        cursor: pointer;
-    }
+<body>
 
-    .MenuButton button:hover{
-        background-color: #F4FA37;
-        color: #121212;
-    }
-
-    .RegisterButton{
-        padding 0px;
-    }
-
-    .RegisterButton button{
-        padding: 1.2vh 2.9vh;
-        background-color: #F4FA37;
-        color: #121212;
-        border: none;
-        box-shadow:0 0 0 .2vh #F4FA37;
-        cursor: pointer;
-    }
-
-    .RegisterButton button:hover{
-        background-color: #121212;
-        color: #F4FA37;
-    }
-
-    #MainHeader p,a,button{
-        font-size: 2.5vh;
-        font-weight: 500;
-        color: #F4FA37;
-        text-decoration: none;
-    }
-
-    .dropdown {
-        position: relative;
-        display: inline-block;
-    }
-
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #121212;
-        min-width: 20vh;
-        z-index: 1;
-    }
-
-    /* Links inside the dropdown */
-    .dropdown-content a {
-        color: #F4FA37;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-    }
-
-    /* Change color of dropdown links on hover */
-    .dropdown-content a:hover {background-color: #F4FA37;
-                                color: #121212;
-                            }
-
-    /* Show the dropdown menu on hover */
-    .dropdown:hover .dropdown-content {display: block;}
-
-    /* Change the background color of the dropdown button when the dropdown content is shown */
-
-</style>
-
-
-
-<header id="MainHeader">
-
-    <div class="MenuButton dropdown">
-        <button class="dropbtn">Menu</button>
-        <div class="dropdown-content">
+    <header id="MainHeader" class='blackbg'>
+        <div class="MenuButton dropdown">
+            <button class="dropbtn">Menu</button>
+            <div class="dropdown-content">
             <a href="./index.php">Home</a>
 
-    <?php
-        if (isset($_SESSION['userId'])) {
-            echo '<a href="account.php">Account</a>
-            <a href="./scripts/logout.php">Logout</a>';
-        }
-        else{
-            echo '<a href="./login.php">Login</a>
-                  <a href="./register.php">Register</a>';
-        }
-        ?>
-        
+                <?php
+                    if (isset($_SESSION['userId'])) {
+                        if(isset($_SESSION['isAdmin'])){
+                            if($_SESSION['isAdmin']){
+                                echo '<a href="./admin-panel">Admin Panel</a>';
+                            }
+                        }                        
+                        echo '
+                        <a href="./uploadGame">Upload game</a>
+                        <a href="./allgames">All Games</a>
+                        <a href="./mygames">My Games</a>
+                        <a href="./account">Account</a>
+                        <a href="./logout">Logout</a>
+                        ';
+                    }
+                    else{
+                        echo '
+                        <a href="./login">Login</a>
+                        <a href="./register">Register</a>
+                        ';
+                    }
+                ?> 
+            </div>
         </div>
-    </div>
-
-    <p> <?php 
-
-        if(isset($_SESSION['userId'])) {
-            echo '"Welcome '.$_SESSION['userName'].'"';
-        }
-        else{
-            echo '"..."';
-        }
-
-        
-
-    ?>   </p>
-
-    <div class="RegisterButton">
-        <?php
-            if (isset($_SESSION['userId'])) {
-                echo '<a href="./account.php"><button>Account</button></a>';
-            } else {
-                echo '<a href="login.php"><button>Register/Log In</button></a>';
-            }
-        ?>
-        
-    </div>	
-</header>
+        <p> 
+            <?php 
+                if(isset($_SESSION['userId'])) {
+                    echo '"Welcome '.$_SESSION['userName'].'"';
+                }
+                else{
+                    echo '"..."';
+                }
+            ?>   
+        </p>
+        <div class="RegisterButton">
+            <?php
+                if (isset($_SESSION['userId'])) {
+                    echo '<a href="./account"><button>Account</button></a>';
+                } else {
+                    echo '<a href="./login"><button>Register/Log In</button></a>';
+                }
+            ?>    
+        </div>	
+    </header>

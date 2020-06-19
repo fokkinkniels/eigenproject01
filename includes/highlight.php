@@ -1,66 +1,69 @@
-<style>
+<div class="row justify-content-around py-5">
 
-    .PhotoBorder{
-        box-shadow: 0 .5vh 0 0  #F4FA37;
-    }
-
-    .highLight{
-        width: 40vw;
-        margin:1% 5% ;
-        background: #292929;	
-    }
-
-    .highLight h1{
-        color: #F6F6F6;
-        padding: 2vh 1vh;  
-        font-size: 3vh;
-    }
-
-    .peviewPhoto{
-        opacity: 0.6;
-        object-fit: cover;
-        object-position: 50% 20%;
-        width: 100%;
-        height: 28vh;
-    }
-
-    .highLightText{
-        color: #F6F6F6;
-        padding: 0px 1vh;
-        padding-bottom: 3vh;
-        font-size: 2vh;
-    }
-
-    .highLightButton {
-        padding: 1vh 3vh;
-        margin-bottom: 1vh;
-        background: #F4FA37;
-        border-radius: 1vh;
-    }
-
-    .highLightButton p{
-        color:black ;
-        font-size: 2.5vh;
-    }
-
-</style>
-
-
-<section class="highLight col-md-4">
-
-    <div class="PhotoBorder">
-        <img class="peviewPhoto" src="img/GamePreview 2.jpg" alt="Preview Photo">
-        </div>
-            <h1>"New Game"</h1>
-                <div class="highLightText">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, similique illum impedit nam cupiditate vitae laborum, dolorem voluptatibus ratione odio aperiam tenetur amet consequuntur vero iste culpa saepe ipsum fugit?
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, similique illum impedit nam cupiditate vitae laborum, dolorem voluptatibus ratione odio aperiam tenetur amet consequuntur vero iste culpa saepe ipsum fugit?
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, similique illum impedit nam cupiditate vitae laborum, dolorem voluptatibus ratione odio aperiam tenetur amet consequuntur vero iste culpa saepe ipsum fugit?
+        <div class="col-md-4">
+            <div class='highlightContainer'>
+                <img  src="./etc/img/GamePreview 2.jpg" alt="preview image">
+                <div class='col-md-12 pt-3'>
+                    <h2>
+                    <?php 
+                        $game = new Game();
+                        $randint = rand(1, count($game->getAllGames())-1);
+                        $game = $game->getGameDetails($randint)[0];
+                        echo $game['title'];
+                    ?>
+                    </h2>
                 </div>
-                <div class="center">
-            <div ></div>
-            <a class="highLightButton" href="#"><p>PLAY</p></a>
-        <div></div>
-    </div>
+                <div class='col-md-12'>
+                    <p>
+                    <?php 
+                        echo $game['description'];
+                    ?>
+                    </p>
+                </div>
+                <form action="./allgames" method="POST">
+                    <button name="PlayButton" type="submit" class="DefaultBtnYel p-2 col-md-12">Play</button>
+                    <div style="height: 0px; width: 0px; overflow: hidden;">
+                        <input type="text" name="id" value="                    
+                        <?php 
+                        echo $game[0];
+                        ?>">
+                    </div>
+                </form>
+            </div>
+        </div>
 
-</section>
+        <div class="col-md-4">
+            <div class='highlightContainer'>
+                <img  src="./etc/img/Game Preview.jpg" alt="preview image">
+                <div class='col-md-12 pt-3'>
+                    <h2>
+                    <?php 
+                        $randint2 = rand(1, count($game->getAllGames())-1);
+                        while($randint2 == $randint){
+                            $randint2 = rand(1, count($game->getAllGames())-1);
+                        }
+                        $game = $game->getGameDetails($randint2)[0];
+                        echo ($game['title']);
+                    ?>
+                    </h2>
+                </div>
+                <div class='col-md-12'>
+                    <p>
+                    <?php 
+                        echo $game['description'];
+                    ?>
+                    </p>
+                </div>
+                <form action="./allgames" method="POST">
+                    <button name="PlayButton" type="submit" class="DefaultBtnYel p-2 col-md-12">Play</button>
+                    <div style="height: 0px; width: 0px; overflow: hidden;">
+                        <input type="text" name="id" value="                    
+                        <?php 
+                        echo ($game['ID']);  
+                        ?>">
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+    </div>

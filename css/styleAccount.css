@@ -1,0 +1,51 @@
+
+
+body{
+	font-family: "Segoe UI", Frutiger, "Frutiger Linotype";
+}
+
+.errorMessage{
+    color: red;
+    font-size: 20px;
+}
+
+.user-container{
+    overflow: hidden;
+    background: #292929;
+}
+
+.user-container img{
+    padding-right: 20px;
+}
+
+.user-container div{
+    float: left;
+}
+
+.user-container p{
+    font-size: 16px;
+    color: #F6F6F6;
+}
+
+.updateProfile{
+    color: #292929;
+    font-size: 16px;
+}
+
+.file{
+    border: #F6F6F6 dashed 2px;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+
+form{
+    padding: 0px;
+    margin: 10px;
+}
+form button{
+    padding: 4px;
+    color: #272727;
+    font-size: 16px;
+}
